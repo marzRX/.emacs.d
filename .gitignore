@@ -1,0 +1,6 @@
+# 出力ファイル（実行ファイル）を無視
+elpa/
+eln-cache/
+auto-save-list/
+.#init.el
+*~
