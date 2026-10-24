@@ -6,6 +6,7 @@
 
 ;; C-h を Backspace に変更
 ;; C-h の標準ヘルプ機能は F1 キーから引き続き利用できる
+;; 例: C-a のキーバインドを調べる場合は F1 k C-a
 (global-set-key (kbd "C-h") #'backward-delete-char-untabify)
 
 ;; End キーで Undo
