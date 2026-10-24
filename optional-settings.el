@@ -25,6 +25,12 @@
 ;; キーボードマクロ関係
 (global-set-key (kbd "C-c n") 'name-last-kbd-macro)
 
+;; xyzzyに倣って, M-p で直前の複雑なコマンドを再実行（標準は C-x ESC ESC）
+(define-key global-map "\M-p" 'repeat-complex-command)
+;; Makefile モードでも M-p を repeat-complex-command にする
+(with-eval-after-load 'make-mode
+  (define-key makefile-gmake-mode-map (kbd "M-p") #'repeat-complex-command))
+
 ;; ------------------------------------------------------------
 ;; PostScript printing
 ;; ------------------------------------------------------------
