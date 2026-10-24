@@ -2,8 +2,10 @@
 ;; Optional settings
 ;; ============================================================
 ;; init.el には含めていない追加設定の候補です。
-;; 必要な設定だけ init.el にコピーして利用してください。
-
+;;
+;; ・必要な設定だけ init.el にコピーして利用してください。
+;; ・すべての設定を利用する場合は、
+;;   init.el の optional-settings.el 読み込み行のコメントを外してください。
 
 ;; 選択範囲の背景色変更
 (set-face-attribute 'region nil :background "#aaF")
