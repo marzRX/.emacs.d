@@ -7,18 +7,11 @@
 ;; ・すべての設定を利用する場合は、
 ;;   init.el の optional-settings.el 読み込み行のコメントを外してください。
 
-;; 選択範囲の背景色変更
-(set-face-attribute 'region nil :background "#aaF")
-
 ;; 現在行のハイライト
 (global-hl-line-mode 1)
 
 ;; 行番号を表示する(50行へ飛ぶには、M-g g 50[Enter])
 (global-display-line-numbers-mode 1)
-
-;; rootで起動したEmacsのテーマ変更
-(when (string= (user-login-name) "root")
-  (load-theme 'tango-dark t))
 
 ;; find-file での スペースによる補完
 (define-key minibuffer-local-filename-completion-map " " 'minibuffer-complete-word)
@@ -35,6 +28,32 @@
 ;; Makefile モードでも M-p を repeat-complex-command にする
 (with-eval-after-load 'make-mode
   (define-key makefile-gmake-mode-map (kbd "M-p") #'repeat-complex-command))
+
+;; root で起動していることを見た目で分かりやすくするため、
+;; 一般ユーザーとは異なる暗色テーマを使用する。
+;; 下記設定を root でも利用するには、~/.emacs.d を /root にコピーします。
+;; sudo cp -r ~/.emacs.d /root
+(cond
+ ((not window-system)
+  ;; CUI の場合
+  (load-theme 'misterioso t)
+  (set-face-attribute 'region nil
+                      :background "#555753"
+                      :foreground "#ffffff"))
+
+ ((string= (user-login-name) "root")
+  ;; GUI で root の場合
+  (load-theme 'tango-dark t)
+  (set-face-attribute 'region nil
+                      :background "#3465a4"
+                      :foreground "#ffffff"))
+
+ (t
+  ;; GUI で root 以外の場合
+  (load-theme 'leuven t)
+  (set-face-attribute 'region nil
+                      :background "#aaaaff"
+                      :foreground nil)))
 
 ;; ------------------------------------------------------------
 ;; PostScript printing
