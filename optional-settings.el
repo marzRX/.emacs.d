@@ -20,6 +20,9 @@
 (when (string= (user-login-name) "root")
   (load-theme 'tango-dark t))
 
+;; find-file での スペースによる補完
+(define-key minibuffer-local-filename-completion-map " " 'minibuffer-complete-word)
+
 ;; マウスホイールのスクロール調整
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control)))
       mouse-wheel-progressive-speed nil)
