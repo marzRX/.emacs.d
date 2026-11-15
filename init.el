@@ -36,5 +36,9 @@
 ;; 対応する括弧を強調
 (show-paren-mode 1)
 
+;; マウスホイールのスクロール調整
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control)))
+      mouse-wheel-progressive-speed nil)
+
 ;; オプション設定を有効にする場合はコメントを外してください
 ;; (load-file (expand-file-name "optional-settings.el" (file-name-directory load-file-name)))

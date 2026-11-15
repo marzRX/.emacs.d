@@ -16,10 +16,6 @@
 ;; find-file での スペースによる補完
 (define-key minibuffer-local-filename-completion-map " " 'minibuffer-complete-word)
 
-;; マウスホイールのスクロール調整
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control)))
-      mouse-wheel-progressive-speed nil)
-
 ;; キーボードマクロ関係
 (global-set-key (kbd "C-c n") 'name-last-kbd-macro)
 
