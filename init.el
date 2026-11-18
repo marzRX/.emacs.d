@@ -1,3 +1,16 @@
+;; Linux Mint 22.3 で発生する次の問題を解決するため
+;; 端末から起動した際、emacs にフォーカスが移らない問題への対応
+(defun my/focus-frame (&optional frame)
+  (let ((target-frame (or frame (selected-frame))))
+    (when (display-graphic-p target-frame)
+      (select-frame-set-input-focus target-frame)
+      (when (eq system-type 'darwin)
+        (ignore-errors
+          (do-applescript "tell application \"Emacs\" to activate"))))))
+(if (daemonp)
+    (add-hook 'after-make-frame-functions #'my/focus-frame)
+  (add-hook 'window-setup-hook #'my/focus-frame))
+
 ;; 起動時のスタートアップ画面を表示しない
 (setq inhibit-startup-screen t)
 
