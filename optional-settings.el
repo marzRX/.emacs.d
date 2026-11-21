@@ -12,6 +12,8 @@
 
 ;; 行番号を表示する(50行へ飛ぶには、M-g g 50[Enter])
 (global-display-line-numbers-mode 1)
+;; 行番号表示のON/OFFをトグル
+(global-set-key (kbd "C-c l") #'display-line-numbers-mode)
 
 ;; find-file での スペースによる補完
 (define-key minibuffer-local-filename-completion-map " " 'minibuffer-complete-word)
