@@ -14,6 +14,8 @@
 (global-display-line-numbers-mode 1)
 ;; 行番号表示のON/OFFをトグル
 (global-set-key (kbd "C-c l") #'display-line-numbers-mode)
+;; 行番号の表示幅をファイル全体の行数から決定
+(setq display-line-numbers-width-start t)
 
 ;; find-file での スペースによる補完
 (define-key minibuffer-local-filename-completion-map " " 'minibuffer-complete-word)
